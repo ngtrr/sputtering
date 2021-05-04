@@ -1,0 +1,9 @@
+set xrange [0:1]
+set yrange [0:1]
+set view 0,0
+set size 1,1
+unset contour
+unset surface
+unset pm3d
+plot 'particle4.75.txt' using 1:2 with dot title "t=7.75s"
+
