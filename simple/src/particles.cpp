@@ -5,10 +5,10 @@
 #include<fstream>
 
 
-#define Np 256*256
-#define PERIOD 8.0f
-#define dt 0.01f
-#define Nt (int)((double)PERIOD/(double)dt +1e-3)
+#define Np 256*256                                  //サンプル数
+#define PERIOD 8.0f                                 //最大時間
+#define dt 0.01f                                    //ステップ時間
+#define Nt (int)((double)PERIOD/(double)dt +1e-3)   //ステップ数
 
 void init(float *px,float *py){
     int i;
@@ -30,6 +30,10 @@ inline float U(float x,float y,float t){
 }
     
 inline float V(float x,float y,float t){
+    return 2.0f*cosf(M_PI*t/PERIOD)*sinf(M_PI*y)*sinf(M_PI*y)*cosf(M_PI*x)*sinf(M_PI*x);
+}
+
+inline float W(float x,float y,float t){
     return 2.0f*cosf(M_PI*t/PERIOD)*sinf(M_PI*y)*sinf(M_PI*y)*cosf(M_PI*x)*sinf(M_PI*x);
 }
 
